@@ -1,15 +1,19 @@
 import { useEffect, useState } from 'react'
 import './styles/UrlFirst.css'
 
-//github.com/user
-//tanstack.com/query
-//stackoverflow.com/questions
+/*
+you can try this app with these url
+github.com/your_user_name
+tanstack.com/query
+stackoverflow.com/questions
+*/
 
 export default function UrlFirst() {
 
   const [urlChoice, setUrlChoice] = useState<string>("github.com");
   const [customUrl, setCustomUrl] = useState<string>("data_to_set_here");
 
+  // derivated state
   const derivatedStateUrlChoice: string = urlChoice;
   const derivatedStateCustomUrl: string = customUrl;
   const [myUrl, setMyUrl] = useState<string>(`https://${derivatedStateUrlChoice}/${derivatedStateCustomUrl}`);
@@ -40,8 +44,6 @@ export default function UrlFirst() {
   const handleSetUrl = () => {
     setMyUrl((prev) => prev + '/' + derivatedStateCustomUrl)
   };
-
-  //console.log(myUrl, "urlChoice")
 
   return (
     <div className='container-url'>

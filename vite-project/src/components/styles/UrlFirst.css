@@ -15,7 +15,6 @@
     align-items: center;
     justify-content: center;
     background: #181818;
-    /* border: 1px solid aqua; */
     border-radius: 20px;
     box-shadow: 0 0 10px aqua;
 }
@@ -24,7 +23,6 @@
     display: flex;
     justify-content: center;
     margin: auto;
-    /* border: 1px solid aqua; */
 }
 
 .title-url h1 {
@@ -86,10 +84,6 @@
     padding: 7px 20px;
 }
 
-/* .option-url {
-    color: aqua;   
-} */
-
 .box-inputbtnurl {
     width: 80%;
     display: flex;
@@ -132,13 +126,12 @@
 }
 
 .btn-url button {
+    font-weight: bold;
+    color: aqua;
     background: linear-gradient(30deg, black 10%, rgba(0, 150, 150, 0.7) 50%, black 90%);
     border: none;
     border-radius: 7px;
     box-shadow: 0 0 7px rgba(0, 255, 255, 0.7);
-    font-weight: bold;
-    color: aqua;
-
     padding: 10px 20px;
     transition: ease 0.2s;
 }
