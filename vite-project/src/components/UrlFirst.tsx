@@ -31,14 +31,19 @@ export default function UrlFirst() {
   };
 
   const handleCutUrl = () => {
-    if (urlChoice === "stackoverflow.com") {
-      setMyUrl((prev) => prev.slice(0, 25));
-    } else if (urlChoice === "github.com") {
-      setMyUrl((prev) => prev.slice(0, 18));
-    } else if (urlChoice === "tanstack.com") {
-      setMyUrl((prev) => prev.slice(0, 20));
+    switch (urlChoice) {
+      case "stackoverflow.com":
+        setCustomUrl("");
+        return setMyUrl((prev) => prev.slice(0, 25));
+      case "github.com":
+        setCustomUrl("");
+        return setMyUrl((prev) => prev.slice(0, 18));
+      case "tanstack.com":
+        setCustomUrl("");
+        return setMyUrl((prev) => prev.slice(0, 20));
+      default:
+        return urlChoice;
     }
-    setCustomUrl("");
   };
 
   const handleSetUrl = () => {
@@ -60,18 +65,22 @@ export default function UrlFirst() {
           </div>
 
           <div className='select-url'>
+          
             <select name="selectsite" 
               value={urlChoice} onChange={(e) => setUrlChoice(e.target.value)}>
               <option value="github.com">github.com</option>
               <option value="tanstack.com">tanstack.com</option>
               <option value="stackoverflow.com">stackoverflow.com</option>
             </select>
+
           </div>
 
           <div className='box-inputbtnurl'>
+
             <input type="text" value={customUrl} onChange={(e) => handleChange(e)} />
 
             <div className='btn-url'>
+
               <button type="button" onClick={handleCutUrl}>
                 {customUrl === "data_to_set_here" ? "Erase" : "Cut Url"}
               </button>
