@@ -26,11 +26,11 @@ export default function UrlFirst() {
     return () => console.log("clean-up");
   }, [urlChoice]);
 
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
     setCustomUrl(event?.target.value);
   };
 
-  const handleCutUrl = () => {
+  const handleCutUrl = (): void | string => {
     switch (urlChoice) {
       case "stackoverflow.com":
         setCustomUrl("");
@@ -46,7 +46,7 @@ export default function UrlFirst() {
     }
   };
 
-  const handleSetUrl = () => {
+  const handleSetUrl = (): void => {
     setMyUrl((prev) => prev + '/' + derivatedStateCustomUrl)
   };
 
