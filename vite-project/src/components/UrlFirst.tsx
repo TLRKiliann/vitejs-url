@@ -1,0 +1,81 @@
+import { useEffect, useState } from 'react'
+import './styles/UrlFirst.css'
+
+//github.com/user
+//tanstack.com/query
+//stackoverflow.com/questions
+
+export default function UrlFirst() {
+
+  const [urlChoice, setUrlChoice] = useState<string>("github.com");
+  const [customUrl, setCustomUrl] = useState<string>("data_to_set_here");
+
+  const derivatedStateUrlChoice: string = urlChoice;
+  const derivatedStateCustomUrl: string = customUrl;
+  const [myUrl, setMyUrl] = useState<string>(`https://${derivatedStateUrlChoice}/${derivatedStateCustomUrl}`);
+
+  useEffect(() => {
+    const caller = () => {
+      setMyUrl((prev) => prev.slice(0, 8) + derivatedStateUrlChoice);
+    }
+    caller();
+    return () => console.log("clean-up");
+  }, [urlChoice]);
+
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setCustomUrl(event?.target.value);
+  };
+
+  const handleCutUrl = () => {
+    if (urlChoice === "stackoverflow.com") {
+      setMyUrl((prev) => prev.slice(0, 25));
+    } else if (urlChoice === "github.com") {
+      setMyUrl((prev) => prev.slice(0, 18));
+    } else if (urlChoice === "tanstack.com") {
+      setMyUrl((prev) => prev.slice(0, 20));
+    }
+    setCustomUrl("");
+  };
+
+  const handleSetUrl = () => {
+    setMyUrl((prev) => prev + '/' + derivatedStateCustomUrl)
+  };
+
+  //console.log(myUrl, "urlChoice")
+
+  return (
+    <div className='container-url'>
+
+      <div className='box-url'>
+
+          <div className='title-url'>
+              <h1>Vite URL</h1>
+          </div>
+  
+          <div className='link-url'>
+              <div className='bg-link'></div>
+              <a href={myUrl} target="_blank" rel="noopener">{myUrl}</a>
+          </div>
+
+          <div className='select-url'>
+            <select name="selectsite" 
+              value={urlChoice} onChange={(e) => setUrlChoice(e.target.value)}>
+              <option value="github.com">github.com</option>
+              <option value="tanstack.com">tanstack.com</option>
+              <option value="stackoverflow.com">stackoverflow.com</option>
+            </select>
+          </div>
+
+          <div className='box-btnurl'>
+              <input type="text" value={customUrl} onChange={(e) => handleChange(e)} />
+
+              <button type="button" onClick={handleCutUrl}>Cut Url</button>
+      
+              <button type="button" onClick={handleSetUrl}>Set new URL</button>
+          </div>
+
+      </div>
+
+    </div>
+  )
+}
