@@ -66,12 +66,17 @@ export default function UrlFirst() {
             </select>
           </div>
 
-          <div className='box-btnurl'>
-              <input type="text" value={customUrl} onChange={(e) => handleChange(e)} />
+          <div className='box-inputbtnurl'>
+            <input type="text" value={customUrl} onChange={(e) => handleChange(e)} />
 
-              <button type="button" onClick={handleCutUrl}>Cut Url</button>
+            <div className='btn-url'>
+              <button type="button" onClick={handleCutUrl}>
+                {customUrl === "data_to_set_here" ? "Erase" : "Cut Url"}
+              </button>
       
               <button type="button" onClick={handleSetUrl}>Set new URL</button>
+
+            </div>
           </div>
 
       </div>

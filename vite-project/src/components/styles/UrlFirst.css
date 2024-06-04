@@ -9,10 +9,10 @@
 
 .box-url {
     width: 50%;
-    height: 80%;
+    height: 600px;
     display: flex;
     flex-direction: column;
-    align-items: space-around;
+    align-items: center;
     justify-content: center;
     background: #181818;
     /* border: 1px solid aqua; */
@@ -23,9 +23,22 @@
 .title-url {
     display: flex;
     justify-content: center;
-    text-shadow: 1px 1px 1px aqua;
     margin: auto;
     /* border: 1px solid aqua; */
+}
+
+.title-url h1 {
+    color: #f8f8ff;
+    text-align: center;
+    letter-spacing: 5px;
+    font-family: 'Ubuntu', sans-serif;
+    text-shadow: 0 2px 3px #747474, 
+    1px 3px 4px #222, 
+    0 8px 3px #474747, 
+    0 11px 4px #747474,
+    0 14px 4px #565656,
+    0 17px 4px #343434,
+    0 20px 4px #171717;
 }
 
 .bg-link {
@@ -62,7 +75,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 7%;
+    margin-top: 10%;
 }
 
 .select-url select {
@@ -77,16 +90,17 @@
     color: aqua;   
 } */
 
-.box-btnurl {
+.box-inputbtnurl {
+    width: 80%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
     margin: auto;
 }
 
-.box-btnurl input {
-    width: 250px;
+.box-inputbtnurl input {
+    width: 60%;
     font-size: 1.0rem;
     font-weight: bold;
     color: rgb(0, 150, 150);
@@ -99,34 +113,42 @@
     padding: 7px 10px;
 }
 
-.box-btnurl input:focus {
+.box-inputbtnurl input:focus {
     border: 1px solid aqua;
     outline:rgba(0, 250, 250, 1)    
 }
 
-.box-btnurl input:active {
+.box-inputbtnurl input:active {
     border: 1px solid aqua;
     outline:rgba(0, 250, 250, 1)
 }
 
-.box-btnurl button {
+.btn-url {
+    width: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 7% auto;
+}
+
+.btn-url button {
     background: linear-gradient(30deg, black 10%, rgba(0, 150, 150, 0.7) 50%, black 90%);
     border: none;
     border-radius: 7px;
     box-shadow: 0 0 7px rgba(0, 255, 255, 0.7);
     font-weight: bold;
     color: aqua;
-    margin: 5% auto;
+
     padding: 10px 20px;
     transition: ease 0.2s;
 }
 
-.box-btnurl button:hover {
+.btn-url button:hover {
     background: linear-gradient(30deg, black 10%, rgba(0, 250, 250, 1) 50%, black 90%);
     color: #000;
 }
 
-.box-btnurl button:active {
+.btn-url button:active {
     background: aqua;
 }
 
@@ -136,6 +158,6 @@
         justify-content: center;
         align-items: center;
         margin: auto;
-        margin-top: 20%;
+        margin-top: 10%;
     }
 }
